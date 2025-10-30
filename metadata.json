@@ -1,0 +1,5 @@
+{
+  "name": "AI Studio: Shorts Script Generator",
+  "description": "An AI-powered tool that generates second-by-second video scripts for shorts, optimized for viewer retention using a predictive Markov chain model. It analyzes scripts, forecasts finish rates, and suggests trigger-based improvements to maximize engagement.",
+  "requestFramePermissions": []
+}
