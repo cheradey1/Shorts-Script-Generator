@@ -21,11 +21,19 @@ export default defineConfig(({ mode }) => {
       build: {
         outDir: 'dist',
         sourcemap: true,
+        chunkSizeWarningLimit: 1000,
         rollupOptions: {
           output: {
-            manualChunks: {
-              'react-vendor': ['react', 'react-dom'],
-              'ai-vendor': ['@google/generative-ai']
+            manualChunks: (id) => {
+              if (id.includes('node_modules')) {
+                if (id.includes('react')) {
+                  return 'react-vendor';
+                }
+                if (id.includes('@google/generative-ai')) {
+                  return 'ai-vendor';
+                }
+                return 'vendor';
+              }
             }
           }
         }
