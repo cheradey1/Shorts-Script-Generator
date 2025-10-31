@@ -11,8 +11,24 @@ export default defineConfig(({ mode }) => {
       },
       plugins: [react()],
       define: {
-        'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-        'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
+        'process.env': JSON.stringify({
+          ...process.env,
+          GEMINI_API_KEY: env.GEMINI_API_KEY || process.env.GEMINI_API_KEY,
+          API_KEY: env.GEMINI_API_KEY || process.env.GEMINI_API_KEY,
+          VERCEL_URL: process.env.VERCEL_URL
+        })
+      },
+      build: {
+        outDir: 'dist',
+        sourcemap: true,
+        rollupOptions: {
+          output: {
+            manualChunks: {
+              'react-vendor': ['react', 'react-dom'],
+              'ai-vendor': ['@google/generative-ai']
+            }
+          }
+        }
       },
       resolve: {
         alias: {
