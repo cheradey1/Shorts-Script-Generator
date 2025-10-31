@@ -41,12 +41,12 @@ export async function generateScript(prompt: string, language: string = 'en'): P
 export { generateScript as default };
 
 const scriptResponseSchema = {
-    type: Type.ARRAY,
+    type: "array",
     items: {
-      type: Type.OBJECT,
+      type: "object",
       properties: {
-        variant_id: { type: Type.STRING },
-        duration_s: { type: Type.INTEGER },
+        variant_id: { type: "string" },
+        duration_s: { type: "integer" },
         timeline: {
           type: Type.ARRAY,
           items: timelineEventSchema,
