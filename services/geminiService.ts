@@ -2,7 +2,7 @@
 import { ScriptVariant } from '../types';
 import { languages } from '../locales/i18n';
 
-const API_URL = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000';
+const API_URL = window.location.hostname === 'localhost' ? 'http://localhost:3000' : '';
 
 interface GenerateResponse {
   script: string;
