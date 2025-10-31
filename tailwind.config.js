@@ -5,6 +5,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
     "./**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -16,6 +17,9 @@ export default {
         'brand-primary': '#4F46E5',
         'brand-secondary': '#A855F7',
         'brand-accent': '#22D3EE',
+      },
+      fontFamily: {
+        sans: ['Inter var', 'sans-serif'],
       },
     },
   },
